@@ -21,7 +21,7 @@ define inter = Character("Interface", color="3300FF")
 define ten = Character("Tenworks", color="FF3300")
 define ne = Character("Nekobi", color="00FF33")
 define no = Character("Nodens", color="999999")
-define lan = Character("Lanthinium", color="33fff0")
+define lan = Character("Lanthinium", color="33fff0", what_font="CyberpunkWaifus.ttf")
 
 screen battle1:
     frame:
@@ -95,6 +95,7 @@ label start:
     $ choicelyna = True
     $ pistol = False
     $ esquive = False
+    $ paralysie = False
     
     $ PACEScore = 0
     
@@ -1816,6 +1817,7 @@ label zone42:
     
 label rea2:
     
+    hide screen battle1
     hide lanth
     stop music
     window hide
@@ -1945,7 +1947,7 @@ label rea2:
     while (lanth_hp > 0) and (player_hp > 0):
         
         menu:
-            "Utiliser le pistolet pour tirer sur Lanthinium" if pistol == True:
+            "Utiliser le pistolet pour tirer sur Lanthinium" if pistol == True and paralysie == False:
                 $ esquive = False
                 play sound "bang2.ogg"
                 $ pistol_dam = renpy.random.randint(0, 6)
@@ -1953,75 +1955,118 @@ label rea2:
                     "Mince j'ai loupé ma cible !"
                 if pistol_dam == 1:
                     $ lanth_hp -= pistol_dam
+                    hide lanth
+                    show lanthred at right
+                    with hpunch
+                    play sound "cyborg.ogg"
                     $ landamage = renpy.random.randint(1, 3)
                     if landamage == 1:
-                        lan "Vous aller regretter ça, vous en faîtes pas."
+                        lan "Vous aller regretter ca, vous en faites pas."
                     if landamage == 2:
-                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                        lan "Bien tente, mais c'est pas ca qui va m'arreter."
                     if landamage == 3:
-                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                        lan "Vous finirez par comprendre, que ca ne sert a rien de lutter, votre tombeau est ici."
+                    hide lanthred
+                    show lanth at right
+                        
                 if pistol_dam == 2:
                     $ lanth_hp -= pistol_dam
                     $ landamage = renpy.random.randint(1, 3)
+                    hide lanth
+                    show lanthred at right
+                    with hpunch
+                    play sound "cyborg.ogg"
                     if landamage == 1:
-                        lan "Vous aller regretter ça, vous en faîtes pas."
+                        lan "Vous aller regretter ca, vous en faites pas."
                     if landamage == 2:
-                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                        lan "Bien tente, mais c'est pas ca qui va m'arreter."
                     if landamage == 3:
-                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                        lan "Vous finirez par comprendre, que ca ne sert a rien de lutter, votre tombeau est ici."
+                    hide lanthred
+                    show lanth at right
                 if pistol_dam == 3:
                     $ lanth_hp -= pistol_dam
                     $ landamage = renpy.random.randint(1, 3)
+                    hide lanth
+                    show lanthred at right
+                    with hpunch
+                    play sound "cyborg.ogg"
                     if landamage == 1:
-                        lan "Vous aller regretter ça, vous en faîtes pas."
+                        lan "Vous aller regretter ca, vous en faites pas."
                     if landamage == 2:
-                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                        lan "Bien tente, mais c'est pas ca qui va m'arreter."
                     if landamage == 3:
-                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                        lan "Vous finirez par comprendre, que ca ne sert a rien de lutter, votre tombeau est ici."
+                    hide lanthred
+                    show lanth at right
                 if pistol_dam == 4:
                     $ lanth_hp -= pistol_dam
                     $ landamage = renpy.random.randint(1, 3)
+                    hide lanth
+                    show lanthred at right
+                    with hpunch
+                    play sound "cyborg.ogg"
                     if landamage == 1:
-                        lan "Vous aller regretter ça, vous en faîtes pas."
+                        lan "Vous aller regretter ca, vous en faîtes pas."
                     if landamage == 2:
-                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                        lan "Bien tente, mais c'est pas ca qui va m'arreter."
                     if landamage == 3:
-                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                        lan "Vous finirez par comprendre, que ca ne sert a rien de lutter, votre tombeau est ici."
+                    hide lanthred
+                    show lanth at right
                 if pistol_dam == 5:
                     $ lanth_hp -= pistol_dam
                     $ landamage = renpy.random.randint(1, 3)
+                    hide lanth
+                    show lanthred at right
+                    with hpunch
+                    play sound "cyborg.ogg"
                     if landamage == 1:
-                        lan "Vous aller regretter ça, vous en faîtes pas."
+                        lan "Vous aller regretter ca, vous en faites pas."
                     if landamage == 2:
-                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                        lan "Bien tente, mais c'est pas ca qui va m'arrêter."
                     if landamage == 3:
-                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                        lan "Vous finirez par comprendre, que ca ne sert a rien de lutter, votre tombeau est ici."
+                    hide lanthred
+                    show lanth at right
                 if pistol_dam == 6:
                     $ lanth_hp -= pistol_dam
                     $ landamage = renpy.random.randint(1, 3)
+                    hide lanth
+                    show lanthred at right
+                    with hpunch
+                    play sound "cyborg.ogg"
                     if landamage == 1:
-                        lan "Vous aller regretter ça, vous en faîtes pas."
+                        lan "Vous aller regretter ca, vous en faites pas."
                     if landamage == 2:
-                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                        lan "Bien tente, mais c'est pas ca qui va m'arreter."
                     if landamage == 3:
-                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                        lan "Vous finirez par comprendre, que ca ne sert a rien de lutter, votre tombeau est ici."
+                    hide lanthred
+                    show lanth at right
                     
                     
                     
                     
                 
-            "Utiliser la barre de fer pour frapper Lanthinium" if pistol == False:
+            "Utiliser la barre de fer pour frapper Lanthinium" if pistol == False and paralysie == False:
                 $ esquive = False
-                play sound "impact.mp3"
+                play sound "bangmet.ogg"
                 $ coup_dam = renpy.random.randint(1, 3)
                 $ lanth_hp -= coup_dam
                 $ landamage2 = renpy.random.randint(1, 3)
+                hide lanth
+                show lanthred at right
+                with hpunch
+                play sound "cyborg.ogg"
                 if landamage2 == 1:
-                    lan "Vous aller regretter ça, vous faîtes pas."
+                    lan "Vous aller regretter ca, vous en faites pas."
                 if landamage2 == 2:
-                    lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                    lan "Bien tente, mais c'est pas ca qui va m'arreter."
                 if landamage2 == 3:
-                    lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                    lan "Vous finirez par comprendre, que ca ne sert a rien de lutter, votre tombeau est ici."
+                hide lanthred
+                show lanth at right
             "Reculer pour éviter une attaque de Lanthinium":
                 $ esquive = True
                 "Je me place en retrait."
@@ -2053,12 +2098,36 @@ label rea2:
                 if hahaha == 6:
                     m "Qu'est ce que vous voulez au fond !!"
                     
-                    lan "Votre mort immédiate, rien de plus simple."
-        
+                    lan "Votre mort immediate, rien de plus simple."
+        if paralysie == True:
+            "Mon bras commence tout juste à récupérer..."
+            $ paralysie = False
         $ lanth_action = renpy.random.randint(1, 3)
         
         if lanth_action == 1:
-            "Lanth tente d'attaquer, mince ! mais il rate !"
+            $ double_luck = renpy.random.randint(1, 2)
+            
+            if double_luck == 1:
+                "Lanth tente d'attaquer, mince ! mais il rate !"
+            if double_luck == 2:
+                if esquive == True:
+                    $ lanth_damage2 = renpy.random.randint(1, 3)
+                    play sound "impact.mp3"
+                    $ player_hp -= lanth_damage2
+                    "Argh, il a anticipé mon esquive, et réussi à m'avoir avec sa barre, mais j'ai pu limiter les dégats ! (Dégats - [lanth_damage2] dégats"
+                if esquive == False:
+                    "Il prend son temps et me vise avec un blaster integré !"
+                    $ chancedudestin = renpy.random.randint(1, 2)
+                    
+                    if chancedudestin == 1:
+                        "Par chance, il rate, je n'ai rien !"
+                    if chancedudestin == 2:
+                        "Merde ! Il a touché mon bras, je ne peux plus le bouger !"
+                        $ paralysie = True
+                        
+                    
+            
+                
         if lanth_action == 2:
             if esquive == True:
                 "Ouais ! J'ai bien fait de me préparer à esquiver, il vient de me rater."
@@ -2071,15 +2140,15 @@ label rea2:
             $ tauntlan = renpy.random.randint(1, 4)
             
             if tauntlan == 1:
-                lan "Rendez vous tout de suite à la mort, ce sera plus rapide."
+                lan "Rendez vous tout de suite a la mort, ce sera plus rapide."
             if tauntlan == 2:
-                lan "Pathétique."
+                lan "Pathetique."
             if tauntlan == 3:
                 lan "Comprenez bien que je ressens pas la douleur, mais vous oui, c'est perdu d'avance."
             if tauntlan == 4:
-                lan "Allez y, continuez, ça ne sert à rien."
+                lan "Allez y, continuez, ca ne sert à rien."
                 
-    hide screen simple_stats_screen
+    hide screen battle1
     
     if lanth_hp <= 0:
         if player_hp <= 0:
