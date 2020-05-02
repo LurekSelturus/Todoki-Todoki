@@ -21,6 +21,51 @@ define inter = Character("Interface", color="3300FF")
 define ten = Character("Tenworks", color="FF3300")
 define ne = Character("Nekobi", color="00FF33")
 define no = Character("Nodens", color="999999")
+define lan = Character("Lanthinium", color="33fff0")
+
+screen battle1:
+    frame:
+        xalign 0.01 yalign 0.05
+        xminimum 220 xmaximum 220
+        vbox:
+            text "Vous" size 22 xalign 0.5
+            null height 5
+            hbox:
+                bar:
+                    xmaximum 130
+                    value player_hp
+                    range player_max_hp
+                    left_gutter 0
+                    right_gutter 0
+                    thumb None
+                    thumb_shadow None
+                    
+                null width 5
+                
+                text "[player_hp] / [player_max_hp]" size 16
+                
+                
+    frame:
+        xalign 0.99 yalign 0.05
+        xminimum 220 xmaximum 220
+        vbox:
+            text "Lanthinium" size 22 xalign 0.5
+            null height 5
+            hbox:
+                bar:
+                    xmaximum 130
+                    value lanth_hp
+                    range lanth_max_hp
+                    left_gutter 0
+                    right_gutter 0
+                    thumb None
+                    thumb_shadow None
+                    
+                null width 5
+                
+                text "[lanth_hp] / [lanth_max_hp]" size 16
+                
+    text "Joueur VS Lanthinium" xalign 0.5 yalign 0.05 size 30
 
 # The game starts here.
 
@@ -49,6 +94,7 @@ label start:
     
     $ choicelyna = True
     $ pistol = False
+    $ esquive = False
     
     $ PACEScore = 0
     
@@ -1766,6 +1812,11 @@ label zone42:
     
     "Je commence à m'approcher du coin de celle ci."
     
+    jump rea2
+    
+label rea2:
+    
+    hide lanth
     stop music
     window hide
     show bg black
@@ -1798,10 +1849,266 @@ label zone42:
     
     "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAH{nw}"
     
+    
     show bg rea
     with fade
     
     "Que..Que s'est il passé ?"
+    
+    show bg rea
+    with hpunch
+    play music "space.ogg"
+    
+    "Ma tête, ma tête est littéralement en feu, je ne comprends rien à ce qu'il m'arrive ?"
+    
+    show bg rea
+    with hpunch
+    
+    "Autour de moi, la même salle de réaparition, en moi, le sentiment de ressenter des couteaux transperçer chaque part de mon corps."
+    
+    show bg rea
+    with hpunch
+    
+    "Le monde est encore flou, des bruits stridents, des bruits de pas au loin, qui résonnent, qui résonnent, ça n'en finit pas."
+    
+    show bg rea
+    with hpunch
+    
+    "Je...je...."
+    
+    show bg black
+    $renpy.pause()
+    show bg rea
+    with fade
+    
+    "Quand je reviens à moi, je suis étalée au sol, j'ai du tomber dans le coma, je vais un peu mieux, mais la douleur lancinente est toujours présente, continuellement, inaltérable."
+    
+    "Je me lève et je descend lentement le montecharge."
+    
+    if pistol == True:
+        "Je sors alors doucement la boîte que m'a donné l'autre fille."
+        
+        "A l'intérieur je trouve un pistolet, d'un noir mat, je le range immédiatement, bien qu'il puisse peut être m'être utile."
+        
+    show bg tark
+    with fade
+    
+    "Je me retrouve dans les couloirs du vaisseau, personne à l'horizon ne semble se montrer."
+    
+    "Je décide de retourner vers la zone ou tout est devenu noir, comprendre ce qui est arrivé."
+    
+    if pistol == False:
+        "Au sol, une barre de fer me fait de l'oeil, je la prend, afin d'assurer ma protection au cas ou."
+        
+    if pistol == True:
+        "Je vois au sol une barre en fer, je ne la prends pas, j'ai toujours mon pistolet au cas ou."
+        
+    "Je continue d'avancer donc, jusqu'à trouver la zone ou tout avait disparu."
+    
+    show bg zone42
+    with fade
+    
+    "Là, je contourne prudemment la tour en métal..."
+    
+    show lanth at right
+    with fade
+    
+    "Là se trouve visiblement un KT8 que je ne peine pas à reconnaître, Lanthinium, l'un des officiers du vaisseau."
+    
+    "Au sol, le corps d'un officier du FSA semble geindre au sol."
+    
+    "Il se relève du corps, se mettant debout, me faisant face."
+    
+    lan "Oh, c'est point le meilleur moment pour venir, passager, mais soit."
+    
+    "Il se penche au sol pour ramasser une barre en métal.."
+    
+    $ combatmusic = renpy.random.randint(1, 4)
+    
+    if combatmusic == 1:
+        play music "Grave.mp3"
+    if combatmusic == 2:
+        play music "comb1.ogg"
+    if combatmusic == 3:
+        play music "comb2.ogg"
+    if combatmusic == 4:
+        play music "comb3.ogg"
+
+    
+    $ lanth_max_hp = 50
+    $ player_max_hp = 50
+    $ lanth_hp = lanth_max_hp
+    $ player_hp = player_max_hp
+    
+    show screen battle1
+    
+    while (lanth_hp > 0) and (player_hp > 0):
+        
+        menu:
+            "Utiliser le pistolet pour tirer sur Lanthinium" if pistol == True:
+                $ esquive = False
+                play sound "bang2.ogg"
+                $ pistol_dam = renpy.random.randint(0, 6)
+                if pistol_dam == 0:
+                    "Mince j'ai loupé ma cible !"
+                if pistol_dam == 1:
+                    $ lanth_hp -= pistol_dam
+                    $ landamage = renpy.random.randint(1, 3)
+                    if landamage == 1:
+                        lan "Vous aller regretter ça, vous en faîtes pas."
+                    if landamage == 2:
+                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                    if landamage == 3:
+                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                if pistol_dam == 2:
+                    $ lanth_hp -= pistol_dam
+                    $ landamage = renpy.random.randint(1, 3)
+                    if landamage == 1:
+                        lan "Vous aller regretter ça, vous en faîtes pas."
+                    if landamage == 2:
+                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                    if landamage == 3:
+                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                if pistol_dam == 3:
+                    $ lanth_hp -= pistol_dam
+                    $ landamage = renpy.random.randint(1, 3)
+                    if landamage == 1:
+                        lan "Vous aller regretter ça, vous en faîtes pas."
+                    if landamage == 2:
+                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                    if landamage == 3:
+                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                if pistol_dam == 4:
+                    $ lanth_hp -= pistol_dam
+                    $ landamage = renpy.random.randint(1, 3)
+                    if landamage == 1:
+                        lan "Vous aller regretter ça, vous en faîtes pas."
+                    if landamage == 2:
+                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                    if landamage == 3:
+                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                if pistol_dam == 5:
+                    $ lanth_hp -= pistol_dam
+                    $ landamage = renpy.random.randint(1, 3)
+                    if landamage == 1:
+                        lan "Vous aller regretter ça, vous en faîtes pas."
+                    if landamage == 2:
+                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                    if landamage == 3:
+                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                if pistol_dam == 6:
+                    $ lanth_hp -= pistol_dam
+                    $ landamage = renpy.random.randint(1, 3)
+                    if landamage == 1:
+                        lan "Vous aller regretter ça, vous en faîtes pas."
+                    if landamage == 2:
+                        lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                    if landamage == 3:
+                        lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+                    
+                    
+                    
+                    
+                
+            "Utiliser la barre de fer pour frapper Lanthinium" if pistol == False:
+                $ esquive = False
+                play sound "impact.mp3"
+                $ coup_dam = renpy.random.randint(1, 3)
+                $ lanth_hp -= coup_dam
+                $ landamage2 = renpy.random.randint(1, 3)
+                if landamage2 == 1:
+                    lan "Vous aller regretter ça, vous faîtes pas."
+                if landamage2 == 2:
+                    lan "Bien tenté, mais c'est pas ça qui va m'arrêter."
+                if landamage2 == 3:
+                    lan "Vous finirez par comprendre, que ça ne sert à rien de lutter, ton tombeau est ici."
+            "Reculer pour éviter une attaque de Lanthinium":
+                $ esquive = True
+                "Je me place en retrait."
+                
+            "Tenter de négocier avec Lanthinium":
+                $ esquive = False
+                $ hahaha = renpy.random.randint(1, 6)
+                
+                if hahaha == 1:
+                    m "Attendez, on peut probablement trouver un compromis !"
+                    
+                    lan "Un compromis ? Je ne fais pas compromis."
+                if hahaha == 2:
+                    m "S'il vous plaît, ne me tuez pas !"
+                    
+                    lan "Je n'ai aucune raison de ne pas le faire."
+                if hahaha == 3:
+                    m "Je peux probablement vous aider, attendez !"
+                    
+                    lan "Eh bien, aidez moi en mourrant, c'est tout ce que je demande."
+                if hahaha == 4:
+                    m "Reculez, ou je vais devoir vous tuer !"
+                    
+                    lan "Comme si vous aviez une chance."
+                if hahaha == 5:
+                    m "Mais, attendez, en tant que KT8, vous devez aider le vaisseau !"
+                    
+                    lan "Votre mort entre dans un plan global pour aider le vaisseau."
+                if hahaha == 6:
+                    m "Qu'est ce que vous voulez au fond !!"
+                    
+                    lan "Votre mort immédiate, rien de plus simple."
+        
+        $ lanth_action = renpy.random.randint(1, 3)
+        
+        if lanth_action == 1:
+            "Lanth tente d'attaquer, mince ! mais il rate !"
+        if lanth_action == 2:
+            if esquive == True:
+                "Ouais ! J'ai bien fait de me préparer à esquiver, il vient de me rater."
+            if esquive == False:
+                $ lanth_damage = renpy.random.randint(1, 8)
+                play sound "impact.mp3"
+                $ player_hp -= lanth_damage
+                "Arrgh, il a réussi à me frapper avec sa barre en métal ! (Dégats - [lanth_damage] dégats"
+        if lanth_action == 3:
+            $ tauntlan = renpy.random.randint(1, 4)
+            
+            if tauntlan == 1:
+                lan "Rendez vous tout de suite à la mort, ce sera plus rapide."
+            if tauntlan == 2:
+                lan "Pathétique."
+            if tauntlan == 3:
+                lan "Comprenez bien que je ressens pas la douleur, mais vous oui, c'est perdu d'avance."
+            if tauntlan == 4:
+                lan "Allez y, continuez, ça ne sert à rien."
+                
+    hide screen simple_stats_screen
+    
+    if lanth_hp <= 0:
+        if player_hp <= 0:
+            "Double KO."
+            jump rea2
+            
+        else:
+            m "J'ai...réussi à le mettre au sol..."
+            jump tark3
+            
+    if player_hp <=0:
+        jump rea2
+    
+label tark3:
+    
+    "Ahahah win la suite plus tard les bébous !"
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
