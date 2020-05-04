@@ -1189,7 +1189,7 @@ label Tarkoza:
     
     "Une jeune femme aux cheveux blonds très clairs s'approche de moi, avec un sourire aux lèvres, dans son autre main, une bouteille d'eau."
     
-    z "Tout doux ma belle, tu viens juste de réaparaître."
+    z "Euh....coucou, tu viens juste de réaparaître."
     
     ly "Moi c'est Lyna, et euh.. Bienvenue au purgatoire."
     
@@ -1199,11 +1199,11 @@ label Tarkoza:
     
     m "Mais, ou suis je ?"
     
-    ly "Toujours sur le Saylent, ne t'en fais pas. Disons juste, que les choses sont un peu plus compliquées."
+    ly "Toujours...sur le Saylent, oui. Disons juste, que les choses sont un peu plus compliquées."
     
     m "Comment ça ?"
     
-    ly "Nous sommes accessoirement, pour ne rien arranger, complétement perdus dans l'espace. Aucune idée d'ou nous sommes."
+    ly "Nous sommes...., enfin, complétement perdus dans l'espace. Aucune idée d'ou nous sommes."
     
     m "Attendez..."
     
@@ -1231,19 +1231,19 @@ label Tarkoza:
     
     "La jeune femme se prend d'un petit rire de moquerie."
     
-    ly "Cherche pas, on a déjà essayé."
+    ly "Désolée...on a vraiment essayé."
     
     "Elle me tend une bouteille d'eau à présent."
     
-    ly "Tu as peut être soif, les gens ont souvent soif en sortant de là."
+    ly "Tu as peut être soif, les gens ont souvent soif en sortant de là..je crois."
     
     "Il était vrai. Je me saisis de la bouteille d'eau avant de la dévisser pour vider la moitié de son contenu, tandis que Lyna m'observe avec un air empathique."
     
-    ly "Tu me diras quand tu sera prête. Je pourrais t'expliquer plus en détail notre situation."
+    ly "Tu me diras quand tu sera prête. Je pourrais t'expliquer plus en détail si tu veux !"
     
     "J'observe autour de moi les câbles bleus et autres machines disparates avant d'acquiescer du regard."
     
-    ly "Bien suis moi."
+    ly "Bien vient avec moi !"
     
     "Elle se met en route, je n'ai d'autre choix que de la suivre. Elle m'enmène ainsi, dans un premier ascensceur, puis un second, visiblement dans une sorte d'hopîtal abandonné, à moitié détruit."
     
@@ -1262,7 +1262,7 @@ label Tarkoza:
     with dissolve
     show lyna at right
     with dissolve
-    ly "Eh, attends un peu, Veos, elle vient seulement d'arriver."
+    ly "Eh, attends un peu, Veos, elle vient seulement d'arriver...."
     
     hide lyna
     with dissolve
@@ -1304,11 +1304,11 @@ label Tarkoza:
     
     "Lyna semble prise d'un petit rire."
     
-    ly "Ahah, il changera jamais Veos, toujours et seulement la science en vue."
+    ly "Ahah, désolée, il changera jamais Veos, toujours et seulement la science en vue."
     
     "Elle joint ses main, semblant en train de préparer une explication."
     
-    ly "Bon du coup le topo est simple. Il y a ...quelques mois, le vaisseau a eu problème."
+    ly "Bon du coup comment dire.... Il y a ...quelques mois, le vaisseau a eu un problème."
     
     ly "Une très grande partie est détruite et nous survivons dans son épave, ce qu'il reste du vaisseau."
     
@@ -1316,7 +1316,7 @@ label Tarkoza:
     
     ly "Depuis disons qu'on cherche un moyen de revenir vers la Voie, mais surtout de survivre."
         
-    ly "Ca va, tu as compris ou tu as des question ?"
+    ly "Ca va, tu as compris ou tu as des question ? Désolée si j'explique mal..."
     
     jump menutark1
     
@@ -1383,7 +1383,7 @@ label tarkoo4:
     
     "Elle soupire visiblement d'un air effrayé."
     
-    ly "C'est  compliqué, mais elles sont devenues toutes plus ou moins hostiles envers nous. Ce qui est évidemmment pas pratique"
+    ly "C'est  compliqué, mais elles sont devenues toutes plus ou moins hostiles envers nous. Ce qui est évidemmment pas pratique.."
     
     ly "Si tu croises un KT8, fuis, c'est tout."
     
@@ -1405,7 +1405,7 @@ label Tarkoza2:
     
     "{i}Hey Lyna ? Ici Tenworks, j'aurai besoin d'aide en bas au niveau des bas-fonds, tu peux venir ?{/i}"
     
-    ly "Ah bien, ça te fera une introduction au final, suis moi."
+    ly "Ah bien, ça te fera une introduction au final, vient avec moi !"
     
     ly "{i}Bien reçu Tenworks, j'ammène une nouvelle avec moi.{/i}"
     
@@ -1535,7 +1535,7 @@ label Tarkoza2:
     
     "Nous repartons donc à travers les couloirs du vaisseau, marchant pendant ce qui semble être une éternité."
     
-    "Nous parvenons enfin, dans une grande salle très éclairée."
+    "Nous parvenons enfin, dans une grande salle très éclairée. Une rapide observation de Lyna me fait comprendre qu'elle ne semble pas à l'aise ici."
     
     show bg serre2
     with fade
@@ -1569,9 +1569,9 @@ label Tarkoza2:
     show lyna at right
     with dissolve
     
-    ly "Ah, c'est juste ça ?"
+    ly "Ah, c'est juste ça, tant mieux, ce sera rapide.."
     
-    "Lyna se tourne vers moi, l'air interrogative."
+    "Lyna se tourne vers moi, l'air interrogative, un peu implorante."
     
     ly "tu veux pas t'occuper de ça pour moi ? J'ai peut être à faire, et puis tu y trouveras des gens à rencontrer."
     
@@ -1592,7 +1592,7 @@ label lynaOUI:
     
     "J'acquiesce rapidement du chef."
     
-    ly "Très bien alors, on se verra un de ces 4 !"
+    ly "Très bien alors, on se verra un de ces quatre !"
     
     hide lyna
     with dissolve
@@ -1711,7 +1711,7 @@ label lynaNON:
     
     ly "Ah bon, bien, je m'occupe de ça, je suppose."
     
-    "Elle semble partir avec un air déçu."
+    "Elle semble partir avec un air un peu effrayé, semble t'il, fuyant rapidement la serre avec la charette, cependant."
     
     hide lyna
     with dissolve
